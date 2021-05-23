@@ -59,15 +59,43 @@ export const deleteTodo = async (_id: string) => {
     }
   }
 
-export const updateTodo = async (
-  todo: ITodo
-): Promise<AxiosResponse<ApiDataType>> => {
+export const doneTodo = async (todo: ITodo) => {
   try {
-    const todoUpdate: Pick<ITodo, 'done'> = {
+    const todoUpdate = {
       done: true,
     }
-    const updatedTodo: AxiosResponse<ApiDataType> = await axios.put(
-      `${baseUrl}/edit-todo/${todo._id}`,
+    const updatedTodo = await axios.put(
+      `${baseUrl}/api/todos/${todo._id}`,
+      todoUpdate
+    )
+    return updatedTodo
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const restoreTodo = async (todo: ITodo) => {
+  try {
+    const todoUpdate = {
+      done: false,
+    }
+    const updatedTodo = await axios.put(
+      `${baseUrl}/api/todos/${todo._id}`,
+      todoUpdate
+    )
+    return updatedTodo
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const updateTodo = async (todo: ITodo) => {
+  try {
+    const todoUpdate = {
+      done: false,
+    }
+    const updatedTodo = await axios.put(
+      `${baseUrl}/api/todos/${todo._id}`,
       todoUpdate
     )
     return updatedTodo

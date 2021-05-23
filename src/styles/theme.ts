@@ -21,12 +21,9 @@ export default {
     }
   },
   colors: {
-    primary: '#F231A5',
-    primaryHover: '#E20E8D',
-    secondary: '#3CD3C1',
-    mainBg: '#030518',
-    boxBg: '#FAFAFA',
-    texts: '#030517',
+    primary: '#EFC531',
+    secondary: '#F45827',
+    texts: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
     gray: '#7B7373'

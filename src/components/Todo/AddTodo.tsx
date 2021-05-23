@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as S from './style'
 
 type Props = { 
   saveTodo: (e: React.FormEvent, formData: ITodo | any) => void 
@@ -34,19 +35,10 @@ const AddTodo = ({ saveTodo }) => {
   }
 
   return (
-    <form className='Form' onSubmit={(e) => saveTodo(e, formData)}>
-      <div>
-        {/* <div>
-          <label htmlFor='name'>Name</label>
-          <input onChange={handleForm} type='text' id='name' />
-        </div> */}
-        <div>
-          <label htmlFor='description'>Description</label>
-          <input onChange={handleForm} type='text' id='description' />
-        </div>
-      </div>
-      <button disabled={formData === undefined ? true: false} >Add Todo</button>
-    </form>
+    <S.Form className='Form' onSubmit={(e) => saveTodo(e, formData)}>
+      <S.Input aria-label="Criar nova tarefa" placeholder="Criar nova tarefa" onChange={handleForm} type='text' id='description' />
+      <S.Button aria-label="Salvar Tarefa" disabled={formData === undefined ? true: false} >Salvar</S.Button>
+    </S.Form>
   )
 }
 

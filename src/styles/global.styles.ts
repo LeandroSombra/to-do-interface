@@ -24,12 +24,16 @@ const GlobalStyle = createGlobalStyle`
       font-family: ${theme.font.family};
       font-size: 62.5%;
       scroll-behavior: smooth;
+      min-height: 100%;
+    -webkit-text-size-adjust: 100%;
     }
 
     body {
-      background-color: ${theme.colors.mainBg};
+      background: linear-gradient(180deg, ${theme.colors.primary} 0%, ${theme.colors.secondary} 100%);
+      min-height: 100%;
       color: ${theme.colors.white};
       font-size: ${theme.font.sizes.small};
+      -webkit-text-size-adjust: 100%;
     }
   `}
 `
