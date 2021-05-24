@@ -13,6 +13,11 @@ export const Content = styled.div`
     ${({ theme }) => css`
       border: solid 1px ${theme.colors.white};
   `}
+
+  &.intro {
+    border-bottom: 0;
+    padding: 6px 20px;
+  }
 `
 
 export const Form = styled.form`
@@ -21,11 +26,12 @@ export const Form = styled.form`
 `
 
 export const Input = styled.input`
-  background: #FFFCFC;
-  border: 1px solid #F9BC3C;
+  ${({ theme }) => css`
+      background-color:${theme.colors.white};
+      color:${theme.colors.gray};
+  `}
   box-shadow: inset 3px -4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  color: #A59999;
   font-size: 32px;
   flex: 1;
   margin: 0 8px 0 0;
@@ -42,14 +48,37 @@ export const Button = styled.button`
 
 export const ItemTodo = styled.div`
   align-items: center;
-  border-top: solid 1px #FFFFFF;
   display: flex;
+  ${({ theme }) => css`
+      border-top: solid 1px ${theme.colors.white};
+  `}
 
   &.concluido {
     opacity: 0.5;
   }
   
 `
+
+
+export const DateHeader = styled.div`
+  align-items: baseline;
+  display: flex;
+  padding: 0 0 20px;
+`
+
+export const DateRight = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+
+  h1 {
+    font-size: 55px;
+    line-height: 42px;
+    padding: 0 8px 0 0;
+  }
+`
+
+
 
 export const ItemDescription = styled.h2`
   flex: 1;
@@ -64,6 +93,7 @@ export const ItemButton = styled.button`
   align-items: center;
   ${({ theme }) => css`
       background-color:${theme.colors.white};
+      color:${theme.colors.gray};
   `}
   cursor: pointer;
   display: flex;

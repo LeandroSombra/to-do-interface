@@ -21,7 +21,9 @@ const AddTodo = () => {
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo) => {
      e.preventDefault()
      e.target[0].value = ''
-     addTodo(formData).then(fetchTodos)
+     if(formData !== ''){
+      addTodo(formData).then(fetchTodos, setFormData(''))
+     }
   }
 
   return (

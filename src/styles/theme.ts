@@ -1,11 +1,4 @@
 export default {
-  grid: {
-    container: '130rem',
-    gutter: '3.2rem'
-  },
-  border: {
-    radius: '0.4rem'
-  },
   font: {
     family:
       "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
@@ -26,15 +19,7 @@ export default {
     texts: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
-    gray: '#7B7373'
-  },
-  spacings: {
-    xxsmall: '0.8rem',
-    xsmall: '1.6rem',
-    small: '2.4rem',
-    medium: '3.2rem',
-    large: '6.0rem',
-    xlarge: '6.4rem',
-    xxlarge: '12.8rem'
+    gray: '#7B7373',
+    green: '#5A955D'
   }
 }

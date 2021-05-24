@@ -1,12 +1,7 @@
 import React, { useContext } from 'react'
 import { FaTrash, FaCheckSquare, FaSquare } from 'react-icons/fa';
 import * as S from './style'
-
-
 import { TodoContext } from '../../contexts/TodoContext'
-
-
-
 
 const Todo = ({ todo }) => {
 
@@ -18,7 +13,7 @@ const Todo = ({ todo }) => {
       <S.ItemButtons>
         {todo.done ? 
           ( <S.ItemButton onClick={() => restoreTodo(todo)}>
-              <FaSquare />
+              <FaCheckSquare />
               <span>Restaurar</span>
             </S.ItemButton>
           ) : (
@@ -28,7 +23,8 @@ const Todo = ({ todo }) => {
                 <FaSquare />
                 <span>Concluída</span>
               </S.ItemButton>
-        )}
+          )
+        }
         <S.ItemButton onClick={() => deleteTodo(todo._id)}>
           <FaTrash />
           <span>Apagar</span>

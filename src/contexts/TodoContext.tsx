@@ -1,7 +1,9 @@
 import { ITodo } from '../types/api'
 
 import React, { useState, useEffect } from 'react'
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
+
+
 const baseUrl: string = 'http://localhost:3003/api/todos/'
 
 const TodoContext = React.createContext()
@@ -86,7 +88,6 @@ const TodoProvider = (props) => {
       throw new Error(error)
     }
   }
-  
 
   useEffect(() => {
     fetchTodos()
