@@ -23,6 +23,12 @@ export const Content = styled.div`
 export const Form = styled.form`
   display: flex;
   padding: 20px;
+
+  &.edit {
+    flex: 1;
+    padding: 0 20px;
+    width: 90%;
+  }
 `
 
 export const Input = styled.input`
@@ -37,6 +43,18 @@ export const Input = styled.input`
   margin: 0 8px 0 0;
   padding: 8px;
   outline: none;
+
+  &.edit {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0%;
+    ${({ theme }) => css`
+      border-bottom: solid 1px ${theme.colors.white};
+      color:${theme.colors.gray};
+  `}
+    font-size: 18px;
+    width: 70%;
+  }
 `
 
 export const Button = styled.button`
@@ -101,5 +119,14 @@ export const ItemButton = styled.button`
   padding: 20px;
   margin: 1px;
   vertical-align: baseline;
+
+  &.edit {
+    &:after {
+      content: "Cancelar";
+      visibility: hidden;
+      height: 0;
+    }
+    
+  }
 
 `

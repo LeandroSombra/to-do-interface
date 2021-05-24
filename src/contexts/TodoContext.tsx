@@ -89,6 +89,21 @@ const TodoProvider = (props) => {
     }
   }
 
+  const editTodo = async (formData, todo: ITodo) => {
+    try {
+      const todoUpdate  = {
+        description: formData.description,
+      }
+      const updatedTodo = await axios.put(
+        `${baseUrl}${todo._id}`,
+        todoUpdate
+      )
+      return updatedTodo
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
   useEffect(() => {
     fetchTodos()
 
@@ -102,7 +117,8 @@ const TodoProvider = (props) => {
       deleteTodo,
       addTodo,
       doneTodo,
-      restoreTodo
+      restoreTodo,
+      editTodo
     }}>
       {props.children}
     </TodoContext.Provider>
