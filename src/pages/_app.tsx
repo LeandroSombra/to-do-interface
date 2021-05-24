@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 
 import theme from 'styles/theme'
 import GlobalStyle from 'styles/global.styles'
+import { TodoProvider } from '../contexts/TodoContext'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -15,7 +16,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <TodoProvider>
+        <Component {...pageProps} />
+      </TodoProvider>
     </ThemeProvider>
   )
 }

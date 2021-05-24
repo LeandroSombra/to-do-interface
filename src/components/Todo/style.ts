@@ -1,19 +1,18 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 750px;
   padding: 0 20px;
   width: 100%;
 `
 
-
 export const Content = styled.div`
-    border: solid 1px #FFFFFF;
-
+    ${({ theme }) => css`
+      border: solid 1px ${theme.colors.white};
+  `}
 `
 
 export const Form = styled.form`
@@ -63,7 +62,9 @@ export const ItemButtons = styled.div`
 
 export const ItemButton = styled.button`
   align-items: center;
-  background-color: #FFFFFF;
+  ${({ theme }) => css`
+      background-color:${theme.colors.white};
+  `}
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -71,7 +72,4 @@ export const ItemButton = styled.button`
   margin: 1px;
   vertical-align: baseline;
 
-  /* + button {
-    margin: 0 0 0 1px;
-  } */
 `

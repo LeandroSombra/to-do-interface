@@ -1,31 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaTrash, FaCheckSquare, FaSquare } from 'react-icons/fa';
 import * as S from './style'
 
-interface ITodo {
-  _id: string
-  description: string
-  done: boolean
-  createdAt?: string
-  updatedAt?: string
-  concluido: boolean
-}
 
-type TodoProps = {
-  todo: ITodo
-}
-
-type ApiDataType = {
-  message: string
-  status: string
-  todos: ITodo[]
-  todo?: ITodo
-}
+import { TodoContext } from '../../contexts/TodoContext'
 
 
 
-const Todo = ({ todo, updateTodo, deleteTodo, restoreTodo }) => {
-  //const checkTodo: string = todo.done ? `line-through` : ''
+
+const Todo = ({ todo }) => {
+
+  const todoContext = useContext(TodoContext)
+  const { deleteTodo, doneTodo, restoreTodo }  = todoContext
   return (
     <S.ItemTodo className={todo.done && 'concluido'}>
       <S.ItemDescription>{todo.description}</S.ItemDescription>
@@ -37,16 +23,13 @@ const Todo = ({ todo, updateTodo, deleteTodo, restoreTodo }) => {
             </S.ItemButton>
           ) : (
               <S.ItemButton
-                onClick={() => updateTodo(todo)}
+                onClick={() => doneTodo(todo)}
               >
                 <FaSquare />
                 <span>Concluída</span>
               </S.ItemButton>
         )}
-        <S.ItemButton
-          onClick={() => deleteTodo(todo._id)}
-          className='Card--button__delete'
-        >
+        <S.ItemButton onClick={() => deleteTodo(todo._id)}>
           <FaTrash />
           <span>Apagar</span>
         </S.ItemButton>
